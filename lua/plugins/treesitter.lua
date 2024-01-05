@@ -1,46 +1,28 @@
 return {
-  "nvim-treesitter/nvim-treesitter",
-  build = ":TSUpdate",
-  dependencies = {
-    "nvim-treesitter/nvim-treesitter-textobjects",
+  {
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    config = function()
+      local config = require("nvim-treesitter.configs")
+      config.setup({
+        -- ensure_installed = {"lua", "javascript"}, resaltado de sintaxis de manera manual
+        auto_install = true,
+        highlight = { enable = true },
+        indent = { enable = true },
+      })
+    end,
   },
-  event = "VeryLazy",
-  main = "nvim-treesitter.configs",
-  opts = {
-    ensure_installed = {
-      "bash",
-      "css",
-      "html",
-      "javascript",
-      "json",
-      "lua",
-      "luadoc",
-      "markdown",
-      "markdown_inline",
-      "typescript",
-      "regex",
-      "vim",
-      "yaml"
-    },
-    highlight = {
-      enable = true
-    },
-    indent = {
-      enable = true
-    },
-    textobjects = {
-      select = {
-        enable = true,
-        lookahead = true,
-        keymaps = {
-          ["af"] = "@function.outer",
-          ["if"] = "@function.inner",
-          ["ac"] = "@conditional.outer",
-          ["ic"] = "@conditional.inner",
-          ["al"] = "@loop.outer",
-          ["il"] = "@loop.inner",
-        }
-      }
-    }
-  }
+  {
+    "nvim-telescope/telescope-ui-select.nvim",
+    config = function()
+      require("telescope").setup({
+        extensions = {
+          ["ui-select"] = {
+            require("telescope.themes").get_dropdown({}),
+          },
+        },
+      })
+      require("telescope").load_extension("ui-select")
+    end,
+  },
 }

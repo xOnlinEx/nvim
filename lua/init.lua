@@ -11,8 +11,6 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup({
-    spec = {
-        { import = "plugins" }
-    }
-})
+require("vim-options")
+-- ver la documentacion de lazy, para mas detalles
+require("lazy").setup("plugins")
