@@ -1,4 +1,4 @@
-return { 
-  "echasnovski/mini.indentscope", 
-  version = "*",
+return {
+    "echasnovski/mini.indentscope",
+    version = "*",
 }
