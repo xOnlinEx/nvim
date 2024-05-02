@@ -10,7 +10,10 @@ return {
 		lazy = false,
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls" },
+				ensure_installed = {
+					"lua_ls",
+					"tsserver",
+				},
 			})
 		end,
 	},
@@ -20,6 +23,8 @@ return {
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 			local lspconfig = require("lspconfig")
+      -- llamados a los lsp
+      lspconfig.tsserver.setup({})
 			lspconfig.lua_ls.setup({
 				settings = {
 					Lua = {
