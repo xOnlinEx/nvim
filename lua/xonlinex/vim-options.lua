@@ -1,6 +1,7 @@
 local opt = vim.opt
 local g = vim.g
 
+-- opt.guicursor = "n-v-i-c:block-Cursor"
 opt.expandtab = true
 opt.shiftwidth = 2
 opt.smartindent = true
