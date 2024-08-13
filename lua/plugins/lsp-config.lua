@@ -26,7 +26,7 @@ return {
           "somesass_ls",
           "taplo",
           "yamlls",
-          "gopls",
+          -- "gopls",
         },
       })
     end,
@@ -52,7 +52,7 @@ return {
       lspconfig.somesass_ls.setup({})
       lspconfig.taplo.setup({})
       lspconfig.yamlls.setup({})
-      lspconfig.gopls.setup({})
+      -- lspconfig.gopls.setup({})
       lspconfig.lua_ls.setup({
         settings = {
           Lua = {
