@@ -10,7 +10,7 @@ return {
           return vim.o.columns * 0.4
         end
       end,
-      open_mapping = [[\\]],
+      open_mapping = [[<c-\>]],
       direction = "float",
       shading_factor = "1",
       insert_mappings = true,

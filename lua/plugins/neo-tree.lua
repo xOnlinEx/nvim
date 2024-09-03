@@ -8,6 +8,12 @@ return {
 		-- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
 	},
 	config = function()
+		require("neo-tree").setup({
+			window = {
+				position = "right",
+        width = 40,
+			},
+		})
 		vim.cmd([[nnoremap <C-n> :Neotree reveal<cr>]])
 	end,
 }
