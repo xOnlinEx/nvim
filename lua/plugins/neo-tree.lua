@@ -10,8 +10,8 @@ return {
 	config = function()
 		require("neo-tree").setup({
 			window = {
-				position = "right",
-        width = 40,
+				position = "left",
+				width = 40,
 			},
 		})
 		vim.cmd([[nnoremap <C-n> :Neotree reveal<cr>]])

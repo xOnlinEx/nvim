@@ -3,10 +3,10 @@ local g = vim.g
 
 -- opt.guicursor = "n-v-i-c:block-Cursor"
 opt.expandtab = true
-opt.shiftwidth = 2
+opt.shiftwidth = 4
 opt.smartindent = true
-opt.tabstop = 2
-opt.softtabstop = 2
+opt.tabstop = 4
+opt.softtabstop = 4
 opt.number = true
 opt.relativenumber = true
 opt.clipboard = "unnamedplus"
