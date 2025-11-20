@@ -1,14 +1,16 @@
 return {
+	-- JAVA + SPRING BOOT
+	{ import = "lazyvim.plugins.extras.lang.json" },
 	{
 		"mason-org/mason.nvim",
-		opts = function(_, opts)
-			vim.list_extend(opts.ensure_installed, {
-				"jdtls",
+		opts = {
+			ensure_installed = {
+				"google-java-format",
 				"java-debug-adapter",
 				"java-test",
-				"google-java-format",
+				"jdtls",
 				"vscode-spring-boot-tools",
-			})
-		end,
+			},
+		},
 	},
 }
