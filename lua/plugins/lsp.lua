@@ -1,5 +1,4 @@
 return {
-	{ import = "lazyvim.plugins.extras.lang.java" },
 	{
 		"mason-org/mason.nvim",
 		opts = function(_, opts)
