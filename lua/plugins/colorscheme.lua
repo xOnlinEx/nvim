@@ -38,9 +38,10 @@ return {
     lazy = false,
     priority = 1000,
     opts = {
+      transparent = true,
       background = {
         dark = "ink",
-        light = "pearl"
+        light = "pearl",
       },
     },
   },
