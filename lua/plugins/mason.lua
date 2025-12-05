@@ -7,6 +7,7 @@ return {
       "java-test",
       "jdtls",
       "vscode-spring-boot-tools",
+      "markdownlint-cli2",
     },
   },
 }
