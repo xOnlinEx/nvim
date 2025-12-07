@@ -3,19 +3,19 @@ return {
   opts = {
     ensure_installed = {
       -- LSP (Language Servers)
-      "jdtls",
-      "lemminx",
+      -- "jdtls",
+      -- "lemminx",
       -- DAP (Debug Adapters)
-      "java-debug-adapter",
-      "java-test",
+      -- "java-debug-adapter",
+      -- "java-test",
       -- Linters
-      "markdownlint-cli2",
+      -- "markdownlint-cli2",
       -- Formatters
-      "google-java-format",
-      "prettierd",
-      "xmlformatter",
+      -- "google-java-format",
+      -- "prettierd",
+      -- "xmlformatter",
       -- Tools
-      "vscode-spring-boot-tools",
+      -- "vscode-spring-boot-tools",
     },
   },
 }
