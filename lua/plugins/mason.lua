@@ -2,20 +2,24 @@ return {
   "mason-org/mason.nvim",
   opts = {
     ensure_installed = {
-      -- LSP (Language Servers)
-      -- "jdtls",
-      -- "lemminx",
-      -- DAP (Debug Adapters)
-      -- "java-debug-adapter",
-      -- "java-test",
-      -- Linters
-      -- "markdownlint-cli2",
-      -- Formatters
-      -- "google-java-format",
-      -- "prettierd",
-      -- "xmlformatter",
-      -- Tools
-      -- "vscode-spring-boot-tools",
+      "lemminx",
+      "java-debug-adapter",
+      "java-test",
+      "google-java-format",
+      "prettierd",
+      "xmlformatter",
+      "vscode-spring-boot-tools",
+      -- Default LazyExtras
+      --[[
+      "jdtls",
+      "json-lsp",
+      "marksman",
+      lua-language-server,
+      "markdown-toc",
+      "markdownlint-cli2",
+      "shfmt",
+      "stylua"
+      ]]
     },
   },
 }
