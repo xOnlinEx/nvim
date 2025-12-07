@@ -1,25 +1,21 @@
 return {
-  -- { import = "lazyvim.plugins.extras.lang.json" },
-  -- { import = "lazyvim.plugins.extras.lang.java" },
-  -- { import = "lazyvim.plugins.extras.lang.markdown" },
-  {
-    "mason-org/mason.nvim",
-    opts = {
-      ensure_installed = {
-        -- Java
-        "google-java-format",
-        "java-debug-adapter",
-        "java-test",
-        "jdtls",
-        "vscode-spring-boot-tools",
-
-        -- XML
-        "lemminx",
-        "xmlformatter",
-
-        -- Markdown
-        "markdownlint-cli2",
-      },
+  "mason-org/mason.nvim",
+  opts = {
+    ensure_installed = {
+      -- LSP (Language Servers)
+      "jdtls",
+      "lemminx",
+      -- DAP (Debug Adapters)
+      "java-debug-adapter",
+      "java-test",
+      -- Linters
+      "markdownlint-cli2",
+      -- Formatters
+      "google-java-format",
+      "prettierd",
+      "xmlformatter",
+      -- Tools
+      "vscode-spring-boot-tools",
     },
   },
 }
