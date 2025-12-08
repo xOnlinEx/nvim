@@ -14,11 +14,11 @@ return {
       "jdtls",
       "json-lsp",
       "marksman",
-      lua-language-server,
+      "lua-language-server",
       "markdown-toc",
       "markdownlint-cli2",
       "shfmt",
-      "stylua"
+      "stylua",
       ]]
     },
   },
