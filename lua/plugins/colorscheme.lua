@@ -52,6 +52,16 @@ return {
       italic_comments = true,
     },
   },
+  {
+    "scottmckendry/cyberdream.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {
+      transparent = true,
+      italic_comments = true,
+      saturation = 1, -- 0 is monochrome
+    },
+  },
   -- Configure LazyVim for colorscheme
   {
     "LazyVim/LazyVim",
