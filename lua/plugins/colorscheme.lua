@@ -53,19 +53,29 @@ return {
     },
   },
   {
-    "scottmckendry/cyberdream.nvim",
-    lazy = false,
-    priority = 1000,
+    "rebelot/kanagawa.nvim",
     opts = {
-      transparent = true,
-      italic_comments = true,
-      saturation = 1, -- 0 is monochrome
-    },
+      background = {
+        dark = "dragon",
+        light = "lotus"
+      },
+      colors = {
+        theme = {
+          all = {
+            ui = {
+              -- background line number
+              bg_gutter = "none",
+            },
+          },
+        },
+      },
+    }
   },
   -- Configure LazyVim for colorscheme
   {
     "LazyVim/LazyVim",
     opts = {
+      transparent = false,
       colorscheme = "kanso",
     },
   },
