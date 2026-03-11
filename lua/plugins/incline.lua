@@ -21,7 +21,6 @@ return {
           " ",
           { filename, gui = modified and "bold" or "bold" },
           " ",
-          guibg = "#1F1F26",
         }
       end,
     })

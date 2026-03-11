@@ -7,6 +7,7 @@ return {
     --   },
     -- },
     window = {
+      -- width = 50,
       position = "float",
       popup = {
         size = {

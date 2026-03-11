@@ -23,6 +23,7 @@ require("lazy").setup({
     ---- Language support plugins
     { import = "lazyvim.plugins.extras.lang.json" },
     { import = "lazyvim.plugins.extras.lang.java" },
+    { import = "lazyvim.plugins.extras.lang.php" },
     { import = "lazyvim.plugins.extras.lang.markdown" },
 
     -- Import/override with your plugins
