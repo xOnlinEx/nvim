@@ -121,8 +121,8 @@ return {
   },
   {
     "oskarnurm/koda.nvim",
-    lazy = false, -- make sure we load this during startup if it is your main colorscheme
-    priority = 1000, -- make sure to load this before all the other start plugins
+    lazy = false,
+    priority = 1000,
   },
   {
     "wunki/gondolin.nvim",
@@ -228,11 +228,6 @@ return {
   },
   { "dasupradyumna/midnight.nvim", lazy = false, priority = 1000 },
   {
-    "zootedb0t/citruszest.nvim",
-    lazy = false,
-    priority = 1000,
-  },
-  {
     "2nthony/vitesse.nvim",
     dependencies = {
       "tjdevries/colorbuddy.nvim",
@@ -250,7 +245,6 @@ return {
     priority = 1000,
     opts = {},
   },
-  { "bakageddy/alduin.nvim", priority = 1000, config = true, opts = {} },
   {
     "Shatur/neovim-ayu",
   },
@@ -259,16 +253,6 @@ return {
     lazy = false,
     priority = 1000,
     opts = {}, -- Optional
-  },
-  { "savq/melange-nvim" },
-  {
-    "Mofiqul/adwaita.nvim",
-    lazy = false,
-    priority = 1000,
-  },
-  {
-    "dgrco/hearthlight.nvim",
-    priority = 1000,
   },
   {
     "Aejkatappaja/sora",
@@ -287,11 +271,19 @@ return {
       transparent = true,
     },
   },
+  {
+    "jpwol/thorn.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {
+      transparent = false,
+    },
+  },
   -- Configure LazyVim for colorscheme
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "rose-pine",
+      colorscheme = "sora",
     },
   },
 }

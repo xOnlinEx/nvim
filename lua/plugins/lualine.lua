@@ -1,8 +1,23 @@
 return {
   "nvim-lualine/lualine.nvim",
   opts = function(_, opts)
-    opts.options.component_separators = { left = "", right = "" }
+    opts.options.component_separators = { left = "", right = "" }
     opts.options.section_separators = { left = "", right = "" }
+    -- LEFT
+    -- opts.sections.lualine_c = {
+    --   {
+    --     function()
+    --       local devicons = require("nvim-web-devicons")
+    --       local icon = devicons.get_icon_by_filetype(vim.bo.filetype, { default = true }) or ""
+    --       local name = vim.fn.expand("%:t")
+    --       if name == "" then
+    --         name = "[Sin nombre]"
+    --       end
+    --       return icon .. " " .. name
+    --     end,
+    --     padding = { left = 1, right = 0 },
+    --   },
+    -- }
     -- RIGHT
     opts.sections.lualine_x = {
       {
@@ -34,22 +49,22 @@ return {
         end,
       },
     }
-    opts.sections.lualine_y = {
+    opts.sections.lualine_z = {
       {
         function()
-          return string.format("%d/%d", vim.fn.line("."), vim.fn.col("."))
+          return string.format("%d:%d", vim.fn.line("."), vim.fn.col("."))
         end,
       },
     }
     -- view LSP active
-    opts.sections.lualine_z = {
+    opts.sections.lualine_y = {
       {
         function()
           local clients = vim.lsp.get_clients({ bufnr = 0 })
           if #clients == 0 then
             return "No LSP"
           end
-          return " " .. clients[1].name
+          return "  LSP ~ " .. clients[1].name
         end,
       },
     }
