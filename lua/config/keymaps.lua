@@ -57,3 +57,20 @@ vim.keymap.set("n", "<C-l>", nvim_tmux_nav.NvimTmuxNavigateRight) -- Navigate to
 -- vim.keymap.set("n", "<C-l>", function()
 --   tmux_aware_navigate("l")
 -- end, { silent = true })
+vim.api.nvim_create_user_command("TestJunit", function()
+  local file = vim.fn.expand("%:p")
+
+  if not file:match("src/main/java") then
+    vim.notify("No estás en src/main/java", vim.log.levels.WARN)
+    return
+  end
+
+  local test_file = file:gsub("src/main/java", "src/test/java"):gsub("([^/]+)%.java$", function(name)
+    return name .. "Test.java"
+  end)
+
+  vim.fn.mkdir(vim.fn.fnamemodify(test_file, ":h"), "p")
+  vim.cmd("edit " .. test_file)
+end, { desc = "Create JUnit test file" })
+
+-- vim.keymap.set("n", "<leader>jt", ":TestJunit<CR>", { desc = "Create JUnit test" })
