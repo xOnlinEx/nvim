@@ -9,6 +9,8 @@ return {
       "prettierd",
       "xmlformatter",
       "vscode-spring-boot-tools",
+      "html-lsp",
+      "css-lsp",
       -- Default LazyExtras
       --[[
       "jdtls",

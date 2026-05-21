@@ -1,8 +1,8 @@
 return {
   "nvim-lualine/lualine.nvim",
   opts = function(_, opts)
-    opts.options.component_separators = { left = "", right = "" }
-    opts.options.section_separators = { left = "", right = "" }
+    opts.options.component_separators = { left = "", right = "" }
+    opts.options.section_separators = { left = "", right = "" }
 
     opts.sections.lualine_a = {
       {
@@ -49,7 +49,7 @@ return {
         --   }
         -- end,
 
-        separator = { right = "" },
+        separator = { right = "" },
       },
     }
 
@@ -58,7 +58,7 @@ return {
       {
         "branch",
         icon = "",
-        separator = { right = "" },
+        separator = { right = "" },
 
         color = function()
           local git = vim.api.nvim_get_hl(0, { name = "GitSignsAdd", link = false })
@@ -94,7 +94,7 @@ return {
           return { bg = bg_gray, fg = fg_text }
         end,
 
-        separator = { right = "" },
+        separator = { right = "" },
       },
     }
 
@@ -120,7 +120,7 @@ return {
           }
         end,
 
-        separator = { left = "" },
+        separator = { left = "" },
       },
     }
 

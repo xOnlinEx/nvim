@@ -20,5 +20,13 @@ return {
         { section = "startup" },
       },
     },
+    explorer = {
+      ignored = true,
+      hidden = true,
+    },
+    picker = {
+      ignored = true,
+      hidden = true,
+    },
   },
 }
