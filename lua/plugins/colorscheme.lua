@@ -15,10 +15,6 @@ return {
         dark = "mocha",
       },
       transparent_background = true,
-      float = {
-        transparent = false,
-        zsolid = false,
-      },
     },
   },
   {
@@ -82,7 +78,8 @@ return {
     priority = 1000,
     opts = {
       style = "night",
-      transparent = false,
+      light_style = "day",
+      transparent = true,
       styles = {
         sidebars = "transparent",
         floats = "transparent",
@@ -167,7 +164,7 @@ return {
         "lualine",
         "neo-tree",
       },
-      override = function(scheme)
+      override = function()
         return {
           SnacksIndent = { fg = "#72696a" },
         }
@@ -252,7 +249,13 @@ return {
     "wtfox/jellybeans.nvim",
     lazy = false,
     priority = 1000,
-    opts = {}, -- Optional
+    opts = {
+      transparent = true,
+      background = {
+        dark = "jellybeans",
+        light = "jellybeans_light",
+      },
+    },
   },
   {
     "Aejkatappaja/sora",
@@ -260,6 +263,9 @@ return {
     priority = 1000,
     opts = {
       transparent = true,
+      on_highlights = function(hl, colors)
+        hl.WinSeparator = { fg = colors.bg, bg = "NONE" }
+      end,
     },
   },
   {
@@ -269,6 +275,24 @@ return {
     opts = {
       variant = "ember", -- "ember" | "ember-soft" | "ember-light"
       transparent = true,
+      transparent_floats = true, -- follows `transparent` by default; set explicitly to override
+      on_highlights = function(hl, palette)
+        -- Snacks picker
+        -- hl.SnacksPicker = { bg = "NONE" }
+        -- hl.SnacksPickerBorder = { bg = "NONE" }
+
+        -- Preview derecha
+        hl.SnacksPickerPreview = { bg = "NONE" }
+        hl.SnacksPickerPreviewBorder = { bg = "NONE" }
+        -- hl.SnacksPickerPreviewTitle = { bg = "NONE" }
+
+        -- Floats generales
+        -- hl.NormalFloat = { bg = "NONE" }
+        -- hl.FloatBorder = { bg = "NONE" }
+
+        -- Separadores
+        -- hl.WinSeparator = { bg = "NONE" }
+      end,
     },
   },
   {
@@ -279,11 +303,21 @@ return {
       transparent = false,
     },
   },
-  -- Configure LazyVim for colorscheme
+  {
+    "gabiuz/kape-nvim",
+    lazy = false,
+    priority = 1000,
+  },
+  {
+    "embark-theme/vim",
+    lazy = false,
+    priority = 1000,
+    name = "embark",
+  },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "sora",
+      colorscheme = "ember",
     },
   },
 }
