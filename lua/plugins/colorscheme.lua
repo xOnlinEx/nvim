@@ -273,7 +273,7 @@ return {
     name = "ember",
     priority = 1000,
     opts = {
-      variant = "ember", -- "ember" | "ember-soft" | "ember-light"
+      variant = "ember-auto", -- "ember" | "ember-soft" | "ember-light"
       transparent = true,
       transparent_floats = true, -- follows `transparent` by default; set explicitly to override
       on_highlights = function(hl, palette)
@@ -317,7 +317,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "ember",
+      colorscheme = "ember-auto",
     },
   },
 }
