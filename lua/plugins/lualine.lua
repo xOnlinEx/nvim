@@ -1,157 +1,145 @@
 return {
   "nvim-lualine/lualine.nvim",
-  opts = function(_, opts)
-    opts.options.component_separators = { left = "", right = "" }
-    opts.options.section_separators = { left = "", right = "" }
-
-    opts.sections.lualine_a = {
-      {
-        "mode",
-      },
-    }
-
-    opts.sections.lualine_b = {
-      -- filename
-      {
-        function()
-          local filename = vim.fn.expand("%:t")
-
-          if filename == "" then
-            return "[No Name]"
-          end
-
-          local extension = vim.fn.expand("%:e")
-          local icon = require("nvim-web-devicons").get_icon(filename, extension, { default = true })
-
-          return string.format("%s %s", icon or "", filename)
-        end,
-
-        color = function()
-          local filename = vim.fn.expand("%:t")
-          local extension = vim.fn.expand("%:e")
-
-          local _, icon_color = require("nvim-web-devicons").get_icon_color(filename, extension, { default = true })
-
-          return {
-            fg = "#1e1e2e",
-            bg = icon_color or "#89b4fa",
-          }
-        end,
-        -- color = function()
-        --   local normal = vim.api.nvim_get_hl(0, {
-        --     name = "Normal",
-        --     link = false,
-        --   })
-        --
-        --   return {
-        --     fg = "#1e1e2e",
-        --     bg = string.format("#%06x", normal.fg),
-        --   }
-        -- end,
-
-        separator = { right = "" },
-      },
-    }
-
-    opts.sections.lualine_c = {
-      -- git branch
-      {
-        "branch",
-        icon = "",
-        separator = { right = "" },
-
-        color = function()
-          local git = vim.api.nvim_get_hl(0, { name = "GitSignsAdd", link = false })
-          local normal = vim.api.nvim_get_hl(0, { name = "Normal", link = false })
-          local fg = normal.bg and string.format("#%06x", normal.bg) or "#1e222a"
-          local bg = git.fg and string.format("#%06x", git.fg) or "#98c379"
-
-          return {
-            fg = fg,
-            bg = bg,
-          }
-        end,
-      },
-      -- git diff
-      {
-        "diff",
-        symbols = {
-          added = " ",
-          modified = " ",
-          removed = " ",
-        },
-        diff_color = {
-          added = { fg = string.format("#%06x", vim.api.nvim_get_hl(0, { name = "GitSignsAdd" }).fg or 0x98c379) },
-          modified = { fg = string.format("#%06x", vim.api.nvim_get_hl(0, { name = "GitSignsChange" }).fg or 0xe5c07b) },
-          removed = { fg = string.format("#%06x", vim.api.nvim_get_hl(0, { name = "GitSignsDelete" }).fg or 0xe06c75) },
-        },
-        color = function()
-          local hl = vim.api.nvim_get_hl(0, { name = "Visual" })
-          local bg_gray = hl.bg and string.format("#%06x", hl.bg) or "#3b4048"
-          local comment = vim.api.nvim_get_hl(0, { name = "Comment" })
-          local fg_text = comment.fg and string.format("#%06x", comment.fg) or "#abb2bf"
-
-          return { bg = bg_gray, fg = fg_text }
-        end,
-
-        separator = { right = "" },
-      },
-    }
-
-    opts.sections.lualine_x = {
-      -- lsp name
-      {
-        function()
-          local clients = vim.lsp.get_clients({ bufnr = 0 })
-          if #clients == 0 then
-            return "No LSP"
-          end
-          return "  LSP ~ " .. clients[1].name
-        end,
-        color = function()
-          local normal = vim.api.nvim_get_hl(0, {
-            name = "Normal",
-            link = false,
-          })
-
-          return {
-            fg = "#1e1e2e",
-            bg = string.format("#%06x", normal.fg),
-          }
-        end,
-
-        separator = { left = "" },
-      },
-    }
-
-    opts.sections.lualine_y = {
-
-      -- folder path
-      {
-        function()
-          return " " .. vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
-        end,
-        color = function()
-          local keyword = vim.api.nvim_get_hl(0, {
-            name = "Keyword",
-            link = false,
-          })
-
-          return {
-            fg = "#1e1e2e",
-            bg = string.format("#%06x", keyword.fg),
-          }
-        end,
-      },
-    }
-    opts.sections.lualine_z = {
-      -- cursor location
-      {
-        function()
-          return "󰦨 " .. string.format("%d:%d", vim.fn.line("."), vim.fn.col("."))
-        end,
-      },
-    }
-    return opts
-  end,
+  -- opts = function(_, opts)
+  --   opts.options.component_separators = { left = "", right = "" }
+  --   opts.options.section_separators = { left = "", right = "" }
+  --
+  --   opts.sections.lualine_a = {
+  --     {
+  --       "mode",
+  --     },
+  --   }
+  --
+  --   opts.sections.lualine_b = {
+  --     -- filename
+  --     {
+  --       function()
+  --         local filename = vim.fn.expand("%:t")
+  --
+  --         if filename == "" then
+  --           return "[No Name]"
+  --         end
+  --
+  --         local extension = vim.fn.expand("%:e")
+  --         local icon = require("nvim-web-devicons").get_icon(filename, extension, { default = true })
+  --
+  --         return string.format("%s %s", icon or "", filename)
+  --       end,
+  --
+  --       color = function()
+  --         local filename = vim.fn.expand("%:t")
+  --         local extension = vim.fn.expand("%:e")
+  --
+  --         local _, icon_color = require("nvim-web-devicons").get_icon_color(filename, extension, { default = true })
+  --
+  --         return {
+  --           fg = icon_color,
+  --           bg = "NONE",
+  --         }
+  --       end,
+  --
+  --       separator = { right = "" },
+  --     }
+  --   }
+  --
+  --   opts.sections.lualine_c = {
+  --     -- git branch
+  --     {
+  --       "branch",
+  --       icon = "",
+  --       separator = { right = "" },
+  --
+  --       color = function()
+  --         local git = vim.api.nvim_get_hl(0, { name = "GitSignsAdd", link = false })
+  --         local normal = vim.api.nvim_get_hl(0, { name = "Normal", link = false })
+  --         local fg = git.fg and string.format("#%06x", git.fg) or "#98c379"
+  --
+  --         return {
+  --           fg = fg,
+  --           bg = "NONE",
+  --         }
+  --       end,
+  --     },
+  --     -- git diff
+  --     {
+  --       "diff",
+  --       symbols = {
+  --         added = " ",
+  --         modified = " ",
+  --         removed = " ",
+  --       },
+  --       diff_color = {
+  --         added = { fg = string.format("#%06x", vim.api.nvim_get_hl(0, { name = "GitSignsAdd" }).fg or 0x98c379) },
+  --         modified = { fg = string.format("#%06x", vim.api.nvim_get_hl(0, { name = "GitSignsChange" }).fg or 0xe5c07b) },
+  --         removed = { fg = string.format("#%06x", vim.api.nvim_get_hl(0, { name = "GitSignsDelete" }).fg or 0xe06c75) },
+  --       },
+  --       color = function()
+  --         local hl = vim.api.nvim_get_hl(0, { name = "Visual" })
+  --         local bg_gray = hl.bg and string.format("#%06x", hl.bg) or "#3b4048"
+  --         local comment = vim.api.nvim_get_hl(0, { name = "Comment" })
+  --         local fg_text = comment.fg and string.format("#%06x", comment.fg) or "#abb2bf"
+  --
+  --         return { bg = "NONE", fg = fg_text }
+  --       end,
+  --
+  --       separator = { right = "" },
+  --     },
+  --   }
+  --
+  --   opts.sections.lualine_x = {
+  --     -- lsp name
+  --     {
+  --       function()
+  --         local clients = vim.lsp.get_clients({ bufnr = 0 })
+  --         if #clients == 0 then
+  --           return "No LSP"
+  --         end
+  --         return "  LSP ~ " .. clients[1].name
+  --       end,
+  --       color = function()
+  --         local normal = vim.api.nvim_get_hl(0, {
+  --           name = "Normal",
+  --           link = false,
+  --         })
+  --
+  --         return {
+  --           fg = "#1e1e2e",
+  --           bg = string.format("#%06x", normal.fg),
+  --         }
+  --       end,
+  --
+  --       separator = { left = "" },
+  --     },
+  --   }
+  --
+  --   opts.sections.lualine_y = {
+  --
+  --     -- folder path
+  --     {
+  --       function()
+  --         return " " .. vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
+  --       end,
+  --       color = function()
+  --         local keyword = vim.api.nvim_get_hl(0, {
+  --           name = "Keyword",
+  --           link = false,
+  --         })
+  --
+  --         return {
+  --           fg = "#1e1e2e",
+  --           bg = string.format("#%06x", keyword.fg),
+  --         }
+  --       end,
+  --     },
+  --   }
+  --   opts.sections.lualine_z = {
+  --     -- cursor location
+  --     {
+  --       function()
+  --         return "󰦨 " .. string.format("%d:%d", vim.fn.line("."), vim.fn.col("."))
+  --       end,
+  --     },
+  --   }
+  --   return opts
+  -- end,
 }

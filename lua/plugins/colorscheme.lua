@@ -315,9 +315,28 @@ return {
     name = "embark",
   },
   {
+    "wtfox/luna.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {
+      transparent = true,
+    },
+  },
+  {
+    "Aejkatappaja/cendre",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("cendre").setup({
+        background = "hard", -- "hard" | "medium" | "soft"
+        italic_virtual_text = false,
+      })
+    end,
+  },
+  {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "ember-auto",
+      colorscheme = "cendre",
     },
   },
 }
